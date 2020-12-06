@@ -23,7 +23,9 @@ namespace MvcPersonalProject.DAL.EntityFramework
                 Twitter = "https://twitter.com/baranvelat021",
                 Instagram = "https://www.instagram.com/baranvelat021/",
                 Telegram = "https://t.me/baranvelat",
-                Image = "user.jpg"
+                Image = "user.jpg",
+                CreatedOn = DateTime.Now,
+                ModifiedOn = DateTime.Now.AddDays(2)
             };
             context.User.Add(user);
             context.SaveChanges();

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace MvcPersonalProject.Entity
 {
     [Table("ProjectDones")]
-    public class ProjectsDones
+    public class ProjectsDones : MyEntityBase
     {
         [DisplayName("Proje Adı"), Required(ErrorMessage = "{0} alanı boş geçilemez"), StringLength(100, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır")]
         public string ProjectName { get; set; }

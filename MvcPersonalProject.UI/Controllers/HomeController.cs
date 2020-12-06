@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcPersonalProject.BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,11 @@ namespace MvcPersonalProject.UI.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        private ServiceManager serviceManager = new ServiceManager();
+
         public ActionResult Index()
         {
+            serviceManager.List();
             return View();
         }
     }
