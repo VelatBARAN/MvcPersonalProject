@@ -105,6 +105,53 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\AdminUI\assets\css\material-dashboard-rtl.css" />
+    <Content Include="Content\AdminUI\assets\css\material-dashboard.css" />
+    <Content Include="Content\AdminUI\assets\css\material-dashboard.min.css" />
+    <Content Include="Content\AdminUI\assets\demo\demo.css" />
+    <Content Include="Content\AdminUI\assets\demo\demo.js" />
+    <Content Include="Content\AdminUI\assets\img\apple-icon.png" />
+    <Content Include="Content\AdminUI\assets\img\bg2.jpg" />
+    <Content Include="Content\AdminUI\assets\img\city-profile.jpg" />
+    <Content Include="Content\AdminUI\assets\img\city.jpg" />
+    <Content Include="Content\AdminUI\assets\img\cover.jpg" />
+    <Content Include="Content\AdminUI\assets\img\faces\avatar.jpg" />
+    <Content Include="Content\AdminUI\assets\img\faces\card-profile1-square.jpg" />
+    <Content Include="Content\AdminUI\assets\img\faces\card-profile2-square.jpg" />
+    <Content Include="Content\AdminUI\assets\img\faces\marc.jpg" />
+    <Content Include="Content\AdminUI\assets\img\favicon.png" />
+    <Content Include="Content\AdminUI\assets\img\mask.png" />
+    <Content Include="Content\AdminUI\assets\img\new_logo.png" />
+    <Content Include="Content\AdminUI\assets\img\sidebar-1.jpg" />
+    <Content Include="Content\AdminUI\assets\img\sidebar-2.jpg" />
+    <Content Include="Content\AdminUI\assets\img\sidebar-3.jpg" />
+    <Content Include="Content\AdminUI\assets\img\sidebar-4.jpg" />
+    <Content Include="Content\AdminUI\assets\js\core\bootstrap-material-design.min.js" />
+    <Content Include="Content\AdminUI\assets\js\core\jquery.min.js" />
+    <Content Include="Content\AdminUI\assets\js\core\popper.min.js" />
+    <Content Include="Content\AdminUI\assets\js\material-dashboard.js" />
+    <Content Include="Content\AdminUI\assets\js\material-dashboard.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\arrive.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\bootstrap-notify.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\bootstrap-selectpicker.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\bootstrap-tagsinput.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\chartist.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\fullcalendar.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jasny-bootstrap.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jquery-jvectormap.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jquery.bootstrap-wizard.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jquery.tagsinput.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\jquery.validate.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\moment.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\nouislider.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Content\AdminUI\assets\js\plugins\sweetalert2.js" />
+    <Content Include="Content\AdminUI\examples\dashboard.html" />
+    <Content Include="Content\AdminUI\examples\tables.html" />
+    <Content Include="Content\AdminUI\examples\user.html" />
+    <Content Include="Content\AdminUI\gulpfile.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\WebUI\assets\css\style.css" />
     <Content Include="Content\WebUI\assets\img\apple-touch-icon.png" />
@@ -229,6 +276,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\AdminUI\assets\css\material-dashboard.css.map" />
+    <Content Include="Content\AdminUI\assets\js\material-dashboard.js.map" />
+    <Content Include="Content\AdminUI\composer.json" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
     <Content Include="Scripts\jquery-3.5.1.min.js" />
@@ -320,9 +370,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\AdminProcess\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminProcessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -350,6 +403,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MvcPersonalProject.BLL\MvcPersonalProject.BLL.csproj">
+      <Project>{fa0c75f9-06ea-4336-b266-b38bb73fabae}</Project>
+      <Name>MvcPersonalProject.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcPersonalProject.Common\MvcPersonalProject.Common.csproj">
+      <Project>{34cf7dba-c4b0-4f1e-8ec2-18cacb38e082}</Project>
+      <Name>MvcPersonalProject.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcPersonalProject.Core\MvcPersonalProject.Core.csproj">
+      <Project>{ffa4a0dc-255d-43bb-822f-a88a36ba7dbe}</Project>
+      <Name>MvcPersonalProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcPersonalProject.Entity\MvcPersonalProject.Entity.csproj">
+      <Project>{6a3d00f5-b0fb-4a9c-ad7b-056d4b30d709}</Project>
+      <Name>MvcPersonalProject.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
