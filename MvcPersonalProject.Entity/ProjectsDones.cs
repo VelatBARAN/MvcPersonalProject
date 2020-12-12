@@ -15,7 +15,7 @@ namespace MvcPersonalProject.Entity
         [DisplayName("Proje Adı"), Required(ErrorMessage = "{0} alanı boş geçilemez"), StringLength(100, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır")]
         public string ProjectName { get; set; }
 
-        [DisplayName("Hizmet")]
+        [DisplayName("Hizmet"), Required(ErrorMessage = "{0} alanı boş geçilemez")]
         public int ServicesId { get; set; }
 
         [DisplayName("Resim-1"), Required(ErrorMessage = "{0} alanı boş geçilemez")]

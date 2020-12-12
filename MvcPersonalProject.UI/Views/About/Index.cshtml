@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MvcPersonalProject.Entity.About>
+
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover table-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.Raw(item.Text)
+        </td>
+        <td>
+            <img src="~/Image/user/@item.Image" alt="" width="200" height="200" class="img-fluid img-responsive" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedOn)
+        </td>
+        <td>
+            <a href="/About/Edit/@item.Id" title="Güncelle" class="btn btn-warning"><i class="fa fa-edit mr-2"> Güncelle</i></a>
+            <a href="/About/Details/@item.Id" title="Detay" class="btn btn-default"> <i class="fa fa-search mr-2"> Detay</i></a>
+        </td>
+    </tr>
+}
+
+</table>

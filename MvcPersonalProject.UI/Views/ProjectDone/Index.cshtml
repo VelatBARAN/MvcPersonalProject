@@ -1,0 +1,75 @@
+﻿@using MvcPersonalProject.Entity
+@model IEnumerable<ProjectsDones>
+@{
+    ViewBag.Title = "Yapılan Projeler";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+<p>
+    <a href="/ProjectDone/Create" class="btn btn-primary" title="Yeni Deneyim Ekle"> <i class="fa fa-plus"></i> Yeni Proje Ekle</a>
+</p>
+<table class="table table-bordered table-striped table-hover table-sm" id="projectDoneTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Services.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teknologies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectDoneDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Services.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teknologies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer)
+            </td>
+            <td>
+                @Html.Raw(item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectDoneDate)
+            </td>
+            <td>
+                <a href="/ProjectDone/Edit/@item.Id" title="Güncelle" class="btn btn-warning"><i class="fa fa-edit mr-2"> Güncelle</i></a>
+                <a href="/ProjectDone/Details/@item.Id" title="Detay" class="btn btn-default"> <i class="fa fa-search mr-2"> Detay</i></a>
+                <a title="Sil" class="btn btn-danger projectDoneDelete" data-id="@item.Id"> <i class="fa fa-trash-o mr-2"> Sil</i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Scripts/jquery-3.5.1.js"></script>
+<script src="~/Scripts/customDelete.js"></script>
+
+

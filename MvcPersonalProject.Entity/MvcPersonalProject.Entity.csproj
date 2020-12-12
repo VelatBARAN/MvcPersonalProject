@@ -50,6 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="ValueObjects\ForgetPasswordViewModel.cs" />
+    <Compile Include="ValueObjects\LoginViewModel.cs" />
+    <Compile Include="ValueObjects\PasswordChangeViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

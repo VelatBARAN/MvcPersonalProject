@@ -36,7 +36,7 @@ namespace MvcPersonalProject.DAL.EntityFramework
             {
                 MyEntityBase o = new MyEntityBase();
                 o.CreatedOn = DateTime.Now;
-                o.ModifiedOn = DateTime.Now.AddDays(1);
+                o.ModifiedOn = DateTime.Now;
             }
             return Save();
         }

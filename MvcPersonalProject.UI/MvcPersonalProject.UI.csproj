@@ -152,7 +152,9 @@
     <Content Include="Content\AdminUI\examples\tables.html" />
     <Content Include="Content\AdminUI\examples\user.html" />
     <Content Include="Content\AdminUI\gulpfile.js" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\validation-summary.css" />
     <Content Include="Content\WebUI\assets\css\style.css" />
     <Content Include="Content\WebUI\assets\img\apple-touch-icon.png" />
     <Content Include="Content\WebUI\assets\img\favicon.png" />
@@ -228,10 +230,13 @@
     <Content Include="Image\hero_image.jpg" />
     <Content Include="Image\logo.png" />
     <Content Include="Image\user\user.jpg" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\customDelete.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -281,7 +286,6 @@
     <Content Include="Content\AdminUI\composer.json" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />
-    <Content Include="Scripts\jquery-3.5.1.min.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -375,11 +379,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AdminProcessController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\ExperienceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectDoneController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\Auth.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CurrentSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -387,6 +399,29 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <Content Include="Views\About\Details.cshtml" />
+    <Content Include="Views\About\Edit.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Edit.cshtml" />
+    <Content Include="Views\Contact\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Service\Details.cshtml" />
+    <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\Experience\Index.cshtml" />
+    <Content Include="Views\Experience\Details.cshtml" />
+    <Content Include="Views\Experience\Create.cshtml" />
+    <Content Include="Views\Experience\Edit.cshtml" />
+    <Content Include="Views\ProjectDone\Index.cshtml" />
+    <Content Include="Views\ProjectDone\Details.cshtml" />
+    <Content Include="Views\ProjectDone\Create.cshtml" />
+    <Content Include="Views\ProjectDone\Edit.cshtml" />
+    <Content Include="Views\User\PasswordChange.cshtml" />
+    <Content Include="Views\AdminProcess\Login.cshtml" />
+    <Content Include="Views\AdminProcess\ForgetPassword.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -396,7 +431,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Image\projectsdone\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

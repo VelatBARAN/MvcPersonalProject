@@ -17,7 +17,8 @@ namespace MvcPersonalProject.Entity
         public string Location { get; set; }
 
         [DisplayName("Email")]
-        [Required(ErrorMessage = "{0} alanı boş geçilemez."), StringLength(50, ErrorMessage = "{0} alanı max {1} karakter olmalıdır."),DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} alanı boş geçilemez."), StringLength(50, ErrorMessage = "{0} alanı max {1} karakter olmalıdır."),
+            DataType(DataType.EmailAddress,ErrorMessage ="Lütfen geçerli bir email adresi giriniz.")]
         public string Email { get; set; }
 
         [DisplayName("Telefon")]

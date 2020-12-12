@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MvcPersonalProject.Entity.User>
+
+@{
+    ViewBag.Title = "Kullanıcı";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover table-sm">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Degree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Github)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telegram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instagram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Twitter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                <img src="~/Image/user/@item.Image" alt="" width="200" height="200" class="img-fluid img-responsive" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Degree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Github)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telegram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instagram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Twitter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a href="/User/Edit/@item.Id" title="Güncelle" class="btn btn-warning"><i class="fa fa-edit mr-2"> Güncelle</i></a>
+                <a href="/User/Details/@item.Id" title="Detay" class="btn btn-default"> <i class="fa fa-search mr-2"> Detay</i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+

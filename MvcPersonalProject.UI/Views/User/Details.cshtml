@@ -1,0 +1,119 @@
+﻿@model MvcPersonalProject.Entity.User
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+
+            <dd>
+                <img src="~/Image/user/@Model.Image" alt="" width="300" height="300" class="img-fluid img-responsive" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Degree)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Degree)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Github)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Github)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Twitter)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Twitter)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Instagram)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Instagram)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telegram)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telegram)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<div class="col-md-12 text-right">
+    <a href="/User/Edit/@Model.Id" class="btn btn-warning" title="Güncelle"><i class="fa fa-edit mr-2"></i> Güncelle</a>
+    <a href="/User/Index" class="btn btn-default" title="Geri Dön"><i class="fa fa-angle-double-left mr-2"></i> Geri Dön</a>
+</div>
+

@@ -1,0 +1,99 @@
+﻿@model MvcPersonalProject.Entity.Experiences
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Institution)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Institution)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Text)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Time)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @if (Model.IsActive)
+                {
+                    <i class="fa fa-check text-success"></i>
+                }
+                else
+                {
+                    <i class="fa fa-remove text-danger"></i>
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<div class="col-md-12 text-right">
+    <a href="/Experience/Edit/@Model.Id" class="btn btn-warning" title="Güncelle"><span class="glyphicon glyphicon-edit mr-2"></span> Güncelle</a>
+    <a href="/Experience/Index" class="btn btn-default" title="Geri Dön"><span class="glyphicon glyphicon-arrow-left mr-2"></span> Geri Dön</a>
+</div>
+

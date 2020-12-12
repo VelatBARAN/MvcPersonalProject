@@ -1,0 +1,48 @@
+﻿@model MvcPersonalProject.Entity.ValueObjects.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş Sayfası</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link href="~/Content/login.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="~/Image/logo.png" id="logo" alt="" width="150" height="150" />
+            </div>
+            @if (ViewBag.LoginFail != null)
+            {
+            <h4 style="color:red" class="fa fa-remove"> @ViewBag.Fail</h4>
+            }
+            @using (Html.BeginForm("Login", "AdminProcess", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <!-- Login Form -->
+                <input type="email" id="Email" class="fadeIn second form-control" name="Email" placeholder="email...">
+                <input type="password" id="Password" class="fadeIn third form-control" name="Password" placeholder="şifre...">
+                <input type="submit" class="fadeIn fourth" value="Giriş">
+            }
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="/AdminProcess/ForgetPassword">Şifremi Unuttum?</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

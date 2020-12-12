@@ -1,0 +1,110 @@
+﻿@using MvcPersonalProject.Entity
+@model ProjectsDones
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <dd>
+                        <img src="~/Image/projectsdone/@Model.Image1" alt="" width="150" height="150" class="img-fluid img-responsive" />
+                    </dd>
+                </div>
+                <div class="col-md-4">
+                    <dd>
+                        <img src="~/Image/projectsdone/@Model.Image2" alt="" width="150" height="150" class="img-fluid img-responsive" />
+                    </dd>
+                </div>
+                <div class="col-md-4">
+                    <dd>
+                        <img src="~/Image/projectsdone/@Model.Image3" alt="" width="150" height="150" class="img-fluid img-responsive" />
+                    </dd>
+                </div>
+            </div>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProjectName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Services.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Services.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Teknologies)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Teknologies)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProjectDoneDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProjectDoneDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<div class="col-md-12 text-right">
+    <a href="/ProjectDone/Edit/@Model.Id" class="btn btn-warning" title="Güncelle"><span class="glyphicon glyphicon-edit mr-2"></span> Güncelle</a>
+    <a href="/ProjectDone/Index" class="btn btn-default" title="Geri Dön"><span class="glyphicon glyphicon-arrow-left mr-2"></span> Geri Dön</a>
+</div>
+

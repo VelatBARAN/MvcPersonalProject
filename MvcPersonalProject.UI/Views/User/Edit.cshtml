@@ -1,0 +1,107 @@
+﻿@model MvcPersonalProject.Entity.User
+
+@{
+    ViewBag.Title = "Kullanıcı Güncelleme";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(false)
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Password)
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    <img src="~/Image/user/@Model.Image" class="img-responsive img-rounded mb-2" width="128" height="128" alt="" />
+                    @Html.HiddenFor(model => model.Image)
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="Image" id="ProfileImage" aria-describedby="ProfileImageAddon" accept=".png,.jpg,.jpeg">
+                        <label class="custom-file-label" for="ProfileImage">Dosya Seçiniz</label>
+                    </div>
+                    <i class="fa fa-info-circle mr-2"></i>
+                    <small><i>Lütfen .jpg, .png ya da .jpeg formatı kullanın</i></small>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Degree, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Degree, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Github, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Github, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Instagram, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Instagram, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Twitter, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Twitter, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    @Html.LabelFor(model => model.Telegram, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Telegram, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-10 offset-1">
+                    <button type="submit" class="btn btn-success"> <i class="fa fa-save mr-2"></i>Kaydet</button>
+                    <a href="/User/Index" class="btn btn-danger"><i class="fa fa-angle-double-left mr-2"></i>İptal</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

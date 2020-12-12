@@ -22,7 +22,7 @@ namespace MvcPersonalProject.Entity
         public string Degree { get; set; }
 
         [DisplayName("EMail"), Required(ErrorMessage = "{0} alanı boş geçilemez"), StringLength(50, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır"),
-            DataType(DataType.EmailAddress)]
+            DataType(DataType.EmailAddress,ErrorMessage ="Lütfen geçerli formatta bir email adresi giriniz")]
         public string Email { get; set; }
 
         [DisplayName("Şifre"), Required(ErrorMessage = "{0} alanı boş geçilemez"), StringLength(50, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır"),

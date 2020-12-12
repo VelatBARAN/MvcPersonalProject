@@ -1,7 +1,7 @@
-﻿using MvcPersonalProject.Entity;
+﻿using MvcPersonalProject.DAL.Migrations;
+using MvcPersonalProject.Entity;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -20,8 +20,8 @@ namespace MvcPersonalProject.DAL.EntityFramework
 
         public DatabaseContext()
         {
-            Database.SetInitializer(new MyInitializer());
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Configuration>());
+           // Database.SetInitializer(new MyInitializer());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext, Configuration>());
         }
     }
 }

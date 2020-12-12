@@ -1,0 +1,60 @@
+﻿@model MvcPersonalProject.Entity.Services
+
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="display-4">
+            @ViewBag.Title
+            <hr />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.Raw(Model.Text)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<div class="col-md-12 text-right">
+    <a href="/Service/Edit/@Model.Id" class="btn btn-warning" title="Güncelle"><i class="fa fa-edit mr-2"></i> Güncelle</a>
+    <a href="/Service/Index" class="btn btn-default" title="Geri Dön"><i class="fa fa-angle-double-left mr-2"></i> Geri Dön</a>
+</div>
+
