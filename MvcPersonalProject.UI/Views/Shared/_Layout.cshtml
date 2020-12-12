@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using MvcPersonalProject.BLL
+@{ 
+    UserManager userManager = new UserManager();
+}
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -38,32 +42,36 @@
 
     <!-- ======= Header ======= -->
     <header id="header">
-        <div class="d-flex flex-column">
-            <div class="profile">
-                <img src="~/Image/user/user.jpg" alt="" class="img-fluid rounded-circle" />
-                <h1 class="text-light"><a href="/Home/Index">Welat BARAN</a></h1>
-                <div class="text-center">
-                    <a href="#"><i class="fa fa-twitter mr-1" title="Twitter"></i></a>
-                    <a href="#"><i class="fa fa-telegram mr-1" title="Telegram"></i></a>
-                    <a href="#"><i class="fa fa-instagram mr-1" title="Instagram"></i></a>
-                    <a href="#"><i class="fa fa-github" title="Github"></i></a>
+        @foreach (var item in userManager.List())
+        {
+            <div class="d-flex flex-column">
+                <div class="profile">
+                    <img src="~/Image/user/@item.Image" alt="" class="img-fluid rounded-circle" />
+                    <h1 class="text-light"><a href="/Home/Index">Welat BARAN</a></h1>
+                    <div class="text-center">
+                        <a href="@item.Twitter" target="_blank"><i class="fa fa-twitter mr-1" title="Twitter"></i></a>
+                        <a href="@item.Telegram" target="_blank"><i class="fa fa-telegram mr-1" title="Telegram"></i></a>
+                        <a href="@item.Instagram" target="_blank"><i class="fa fa-instagram mr-1" title="Instagram"></i></a>
+                        <a href="@item.Github" target="_blank"><i class="fa fa-github" title="Github"></i></a>
+                    </div>
                 </div>
+
+                <nav class="nav-menu">
+                    <ul>
+                        <li class="active"><a href="/Home/Index"><i class="bx bx-home"></i> <span>Anasayfa</span></a></li>
+                        <li><a href="#about"><i class="bx bx-user"></i> <span>Hakkımda</span></a></li>
+                        <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Özgeçmiş</span></a></li>
+                        <li><a href="#portfolio"><i class="bx bx-book-content"></i> Yapılan Projeler</a></li>
+                        <li><a href="#services"><i class="bx bx-server"></i> Hizmetler</a></li>
+                        <li><a href="#contact"><i class="bx bx-envelope"></i> İletişim</a></li>
+
+                    </ul>
+                </nav><!-- .nav-menu -->
+                <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
+
             </div>
+        }
 
-            <nav class="nav-menu">
-                <ul>
-                    <li class="active"><a href="/Home/Index"><i class="bx bx-home"></i> <span>Anasayfa</span></a></li>
-                    <li><a href="#about"><i class="bx bx-user"></i> <span>Hakkımda</span></a></li>
-                    <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Özgeçmiş</span></a></li>
-                    <li><a href="#portfolio"><i class="bx bx-book-content"></i> Yapılan Projeler</a></li>
-                    <li><a href="#services"><i class="bx bx-server"></i> Hizmetler</a></li>
-                    <li><a href="#contact"><i class="bx bx-envelope"></i> İletişim</a></li>
-
-                </ul>
-            </nav><!-- .nav-menu -->
-            <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
-
-        </div>
     </header><!-- End Header -->
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex flex-column justify-content-center align-items-center">

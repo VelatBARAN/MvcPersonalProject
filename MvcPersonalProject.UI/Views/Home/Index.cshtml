@@ -1,49 +1,58 @@
-﻿
+﻿@using MvcPersonalProject.BLL
+@using System.Data.Entity;
 @{
     ViewBag.Title = "Anasayfa";
+    AboutManager aboutManager = new AboutManager();
+    ExperienceManager excManager = new ExperienceManager();
+    ProjectDoneManager projectDoneManager = new ProjectDoneManager();
+    var result = projectDoneManager.ListQueryable().Include("Services").OrderByDescending(x => x.CreatedOn).ToList();
+    ServiceManager serviceManager = new ServiceManager();
+    ContactManager contactManager = new ContactManager();
 }
 
 <!-- ======= About Section ======= -->
 <section id="about" class="about">
     <div class="container">
+        @foreach (var item in aboutManager.List())
+        {
+            <div class="section-title">
+                <h2>Hakkımda</h2>
 
-        <div class="section-title">
-            <h2>Hakkımda</h2>
-            <p>
-                Selçuk Üniversitesi Bilgisayar Mühendisi mezunuyum. Şu an aktif olarak Bağlar Belediyesi Bilgi İşlem Departmanında çalışmaktayım.
-                Boş zamanlarımda Asp.Net Mvc5,C#,Jquery,Javascript,Ajax,Mssql,LinQ,TSql programlama araçlarını kullanarak projeler geliştirmekteyim.
-            </p>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4" data-aos="fade-right">
-                <img src="~/Image/user/user.jpg" class="img-fluid" alt="" width="400" height="400" />
-            </div>
-            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                <h3>Bilgisayar Mühendisi(2010 - 2015)</h3>
-                <p class="font-italic">
-                    Kendimi geliştirmeyi ve sürekli birşeyler araştırıp öğrenmeyi çok seven biriyim. Elimden geldiğince yazılım alanında farklı projeler üretip kendimi geliştirmeye çalışıyorum.
+                <p>
+                    @Html.Raw(item.Text)
                 </p>
-                <div class="row">
-                    <div class="col-lg-7">
-                        <ul>
-                            <li><i class="icofont-rounded-right"></i> <strong>Doğum Günü:</strong> 20-05-1990</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Web Sitesi:</strong> http://www.welatbaran.somee.com</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Telefon:</strong> 0539 371 1268</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Şehir:</strong> Diyarbakır, Türkiye</li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-5">
-                        <ul>
-                            <li><i class="icofont-rounded-right"></i> <strong>Yaş:</strong> 30</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Diplama:</strong> Lisans</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> baranvelat021@gmail.com</li>
-                            <li><i class="icofont-rounded-right"></i> <strong>Serbest Çalışan:</strong> Müsait</li>
-                        </ul>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <img src="~/Image/user/@item.Image" class="img-fluid" alt="" width="400" height="400" />
+                </div>
+                <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+                    <h3>Bilgisayar Mühendisi(2010 - 2015)</h3>
+                    <p class="font-italic">
+                        Kendimi geliştirmeyi ve sürekli birşeyler araştırıp öğrenmeyi çok seven biriyim. Elimden geldiğince yazılım alanında farklı projeler üretip kendimi geliştirmeye çalışıyorum.
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <ul>
+                                <li><i class="icofont-rounded-right"></i> <strong>Doğum Günü:</strong> 20-05-1990</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Web Sitesi:</strong> http://www.welatbaran.somee.com</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Telefon:</strong> 0539 371 1268</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Şehir:</strong> Diyarbakır, Türkiye</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-5">
+                            <ul>
+                                <li><i class="icofont-rounded-right"></i> <strong>Yaş:</strong> 30</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Diplama:</strong> Lisans</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> baranvelat021@gmail.com</li>
+                                <li><i class="icofont-rounded-right"></i> <strong>Serbest Çalışan:</strong> Müsait</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
 
     </div>
 </section><!-- End About Section -->
@@ -91,28 +100,38 @@
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="resume-title">Profesyonel Deneyimler</h3>
-                <div class="resume-item">
-                    <h4>Bağlar Belediyesi - Bilgi İşlem Sorumlusu</h4>
-                    <h5>2017 - Aktif</h5>
-                    <p><em>Diyarbakır Bağlar Belediyesi , Türkiye</em></p>
-                    <ul>
-                        <li>
-                            Kurumun Bilgi İşlem Birimde halen Bilgi İşlem Sorumlusu olarak çalışmaktayım. Belediye Bünyesinde kullanılan
-                            tüm yazılım sistemlerin(mis,gis,ebys,e-belediyecilik uygulamaları vs..) desteğini yani oluşan yazılımsal ve sistemsel
-                            sorunların çözümünü sağlıyoruz. Asp.net, Mvc5, Boostrap, Jquery, Javascript, Entity Framework, T-Sql, Linq teknolojilerini
-                            kullanarak projeler geliştirmekteyim.
-                        </li>
-                    </ul>
-                </div>
-                <div class="resume-item">
-                    <h4>İş Zekası Uzman Yardımcısı</h4>
-                    <h5>2017 (2 ay)</h5>
-                    <p><em>Dicle Elektrik A.Ş, Diyarbakır,Türkiye</em></p>
-                    <ul>
-                        <li>ş Zekası Biriminde İş Zekası Uzman Yrd. olarak çalıştım. Bu süreç içerisinde İş Zekası geliştirme araçlarını 
-                        kullanarak Oracle Database' nde Sql sorgu cümlecikleriyle veri analizleri yapıp birimlerinin ihtiyaçlarına göre raporlamalar ürettik.</li>
-                    </ul>
-                </div>
+                @foreach (var item in excManager.ListQueryable().OrderByDescending(x => x.CreatedOn).ToList())
+                {
+                    string ap = null;
+                    if (item.IsActive)
+                    {
+                        ap = "Aktif";
+                    }
+                    else
+                    {
+                        ap = "Pasif";
+                    }
+                    <div class="resume-item">
+                        <h4>@item.Institution - @item.Department</h4>
+                        <h5>@item.Time - @ap</h5>
+                        <p><em>@item.Institution - @item.City</em></p>
+                        <ul>
+                            <li>
+                                @Html.Raw(item.Text)
+                            </li>
+                        </ul>
+                    </div>
+                }
+
+                @*<div class="resume-item">
+                        <h4>İş Zekası Uzman Yardımcısı</h4>
+                        <h5>2017 (2 ay)</h5>
+                        <p><em>Dicle Elektrik A.Ş, Diyarbakır,Türkiye</em></p>
+                        <ul>
+                            <li>ş Zekası Biriminde İş Zekası Uzman Yrd. olarak çalıştım. Bu süreç içerisinde İş Zekası geliştirme araçlarını
+                            kullanarak Oracle Database' nde Sql sorgu cümlecikleriyle veri analizleri yapıp birimlerinin ihtiyaçlarına göre raporlamalar ürettik.</li>
+                        </ul>
+                    </div>*@
             </div>
         </div>
 
@@ -129,95 +148,18 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+            @foreach (var item in result)
+            {
+                <div class="col-lg-4 col-md-6 portfolio-item">
+                    <div class="portfolio-wrap">
+                        <img src="~/Image/projectsdone/@item.Image1" class="img-fluid" alt="">
+                        <div class="portfolio-links">
+                            <a href="~/Image/projectsdone/@item.Image1" data-gall="portfolioGallery" class="venobox" title="@item.ProjectName"><i class="bx bx-plus"></i></a>
+                            <a href="/Home/ProjectDetail" title="Detay"><i class="bx bx-link"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-2.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-3.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-4.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-5.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-6.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-7.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-8.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item">
-                <div class="portfolio-wrap">
-                    <img src="~/Content/WebUI/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-                    <div class="portfolio-links">
-                        <a href="Content/WebUI/assets/img/portfolio/portfolio-9.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                    </div>
-                </div>
-            </div>
+            }
 
         </div>
 
@@ -233,26 +175,15 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up">
-                <div class="icon"><i class="icofont-computer"></i></div>
-                <h4 class="title"><a href="">Web Projeleri</a></h4>
-                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-            <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="icofont-chart-bar-graph"></i></div>
-                <h4 class="title"><a href="">Otomasyon Yazılımları</a></h4>
-                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-            <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon"><i class="fa fa-shopping-cart"></i></div>
-                <h4 class="title"><a href="">E-Ticaret Yazılımları</a></h4>
-                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-            <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon"><i class="fa fa-mobile-phone"></i></div>
-                <h4 class="title"><a href="">Mobil Yazılımları</a></h4>
-                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
+            @foreach (var item in serviceManager.List())
+            {
+                <div class="col-lg-6 col-md-6 icon-box" data-aos="fade-up">
+                    <div class="icon"><i class="icofont-computer"></i></div>
+                    <h4 class="title"><a href="">@item.Title</a></h4>
+                    <p class="description">@Html.Raw(item.Text)</p>
+                </div>
+            }
+
         </div>
 
     </div>
@@ -267,30 +198,33 @@
 
         <div class="row" data-aos="fade-in">
 
-            <div class="col-lg-5 d-flex align-items-stretch">
-                <div class="info">
-                    <div class="address">
-                        <i class="icofont-google-map"></i>
-                        <h4>Konum:</h4>
-                        <p>Bağcılar mah. Bağlar Belediyesi Bağlar/Diyarbakır</p>
+            @foreach (var item in contactManager.List())
+            {
+                <div class="col-lg-5 d-flex align-items-stretch">
+                    <div class="info">
+                        <div class="address">
+                            <i class="icofont-google-map"></i>
+                            <h4>Konum:</h4>
+                            <p>@item.Location</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="icofont-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>@item.Email</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="icofont-phone"></i>
+                            <h4>Telefon:</h4>
+                            <p>@item.Phone </p>
+                        </div>
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                     </div>
 
-                    <div class="email">
-                        <i class="icofont-envelope"></i>
-                        <h4>Email:</h4>
-                        <p>baranvelat021@gmail.com</p>
-                    </div>
-
-                    <div class="phone">
-                        <i class="icofont-phone"></i>
-                        <h4>Telefon:</h4>
-                        <p>0539 371 1268 </p>
-                    </div>
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
                 </div>
-
-            </div>
+            }
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
                 <form action="forms/contact.php" method="post" role="form" class="php-email-form">

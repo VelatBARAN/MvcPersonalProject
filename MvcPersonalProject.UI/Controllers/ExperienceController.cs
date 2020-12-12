@@ -45,8 +45,6 @@ namespace MvcPersonalProject.UI.Controllers
         [ValidateInput(false)]
         public ActionResult Create(Experiences experiences)
         {
-            ModelState.Remove("CreatedOn");
-            ModelState.Remove("ModifiedOn");
             if (ModelState.IsValid)
             {
                 experienceManager.Insert(experiences);
@@ -75,7 +73,6 @@ namespace MvcPersonalProject.UI.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(Experiences experiences)
         {
-            ModelState.Remove("ModifiedOn");
             if (ModelState.IsValid)
             {
                 Experiences exp = experienceManager.Find(x => x.Id == experiences.Id);
