@@ -1,0 +1,53 @@
+﻿@model MvcPersonalProject.Entity.ProjectsDones
+@{
+    ViewBag.Title = "Proje Detayı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Proje Detayı</h2>
+            <ol>
+                <li><a href="/Home/Index">Anasayfa</a></li>
+                <li>Proje Detayı</li>
+            </ol>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="portfolio-details-container">
+
+            <div class="owl-carousel portfolio-details-carousel owl-loaded owl-drag">
+                <img src="~/Image/projectsdone/@Model.Image1" class="img-fluid" alt="" >
+                <img src="~/Image/projectsdone/@Model.Image2" class="img-fluid" alt="" >
+                <img src="~/Image/projectsdone/@Model.Image3" class="img-fluid" alt="" >
+            </div>
+
+            <div class="portfolio-info">
+                <h3>Proje Bilgileri</h3>
+                <ul>
+                    <li><strong>Proje Adı</strong>: <a href="#">: @Model.ProjectName</a></li>
+                    <li><strong>Hizmet Alanı</strong>: @Model.Services.Title</li>
+                    <li><strong>Müşteri</strong>: @Model.Customer</li>
+                    <li><strong>Proje Tarihi</strong>: @Model.ProjectDoneDate.ToShortDateString()</li>
+                    <li><strong>Kullanılan Teknolojiler</strong>: @Model.Teknologies</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="portfolio-description">
+            <h2>@Model.ProjectName</h2>
+            <p>
+                @Html.Raw(Model.Description)
+            </p>
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->

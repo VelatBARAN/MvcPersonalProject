@@ -156,27 +156,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\validation-summary.css" />
     <Content Include="Content\WebUI\assets\css\style.css" />
-    <Content Include="Content\WebUI\assets\img\apple-touch-icon.png" />
-    <Content Include="Content\WebUI\assets\img\favicon.png" />
-    <Content Include="Content\WebUI\assets\img\hero-bg.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio-details-1.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio-details-2.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio-details-3.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-1.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-2.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-3.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-4.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-5.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-6.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-7.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-8.jpg" />
-    <Content Include="Content\WebUI\assets\img\portfolio\portfolio-9.jpg" />
-    <Content Include="Content\WebUI\assets\img\profile-img.jpg" />
-    <Content Include="Content\WebUI\assets\img\testimonials\testimonials-1.jpg" />
-    <Content Include="Content\WebUI\assets\img\testimonials\testimonials-2.jpg" />
-    <Content Include="Content\WebUI\assets\img\testimonials\testimonials-3.jpg" />
-    <Content Include="Content\WebUI\assets\img\testimonials\testimonials-4.jpg" />
-    <Content Include="Content\WebUI\assets\img\testimonials\testimonials-5.jpg" />
     <Content Include="Content\WebUI\assets\js\main.js" />
     <Content Include="Content\WebUI\assets\vendor\aos\aos.css" />
     <Content Include="Content\WebUI\assets\vendor\aos\aos.js" />
@@ -221,7 +200,6 @@
     <Content Include="Content\WebUI\assets\vendor\venobox\venobox.min.js" />
     <Content Include="Content\WebUI\assets\vendor\waypoints\jquery.waypoints.min.js" />
     <Content Include="Content\WebUI\forms\contact.php" />
-    <Content Include="Content\WebUI\forms\Readme.txt" />
     <Content Include="Content\WebUI\index.html" />
     <Content Include="Content\WebUI\inner-page.html" />
     <Content Include="Content\WebUI\portfolio-details.html" />
@@ -229,6 +207,9 @@
     <Content Include="Global.asax" />
     <Content Include="Image\hero_image.jpg" />
     <Content Include="Image\logo.png" />
+    <Content Include="Image\projectsdone\MyEvernote Projesi_Image1.jpeg" />
+    <Content Include="Image\projectsdone\MyEvernote Projesi_Image2.png" />
+    <Content Include="Image\projectsdone\MyEvernote Projesi_Image3.png" />
     <Content Include="Image\user\user.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
@@ -422,6 +403,7 @@
     <Content Include="Views\User\PasswordChange.cshtml" />
     <Content Include="Views\AdminProcess\Login.cshtml" />
     <Content Include="Views\AdminProcess\ForgetPassword.cshtml" />
+    <Content Include="Views\Home\ProjectDoneDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -431,7 +413,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\projectsdone\" />
+    <Folder Include="Views\ProjectDoneDetail\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

@@ -9,7 +9,13 @@
     ServiceManager serviceManager = new ServiceManager();
     ContactManager contactManager = new ContactManager();
 }
-
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+        <h1>Welat BARAN</h1>
+        <p>Ben, <span class="typed" data-typed-items="Bilgisayar Mühendisiyim , Yazılımcıyım, Web Geliştiricisiyim"></span></p>
+    </div>
+</section><!-- End Hero -->
 <!-- ======= About Section ======= -->
 <section id="about" class="about">
     <div class="container">
@@ -155,7 +161,7 @@
                         <img src="~/Image/projectsdone/@item.Image1" class="img-fluid" alt="">
                         <div class="portfolio-links">
                             <a href="~/Image/projectsdone/@item.Image1" data-gall="portfolioGallery" class="venobox" title="@item.ProjectName"><i class="bx bx-plus"></i></a>
-                            <a href="/Home/ProjectDetail" title="Detay"><i class="bx bx-link"></i></a>
+                            <a href="/Home/ProjectDoneDetail/@item.Id" title="Detay"><i class="bx bx-link"></i></a>
                         </div>
                     </div>
                 </div>
