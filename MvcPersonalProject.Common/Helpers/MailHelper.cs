@@ -53,5 +53,6 @@ namespace MvcPersonalProject.Common.Helpers
 
             return result;
         }
+
     }
 }

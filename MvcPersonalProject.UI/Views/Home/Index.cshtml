@@ -1,5 +1,7 @@
 ﻿@using MvcPersonalProject.BLL
 @using System.Data.Entity;
+@using MvcPersonalProject.Entity.ValueObjects
+@model MessageSendViewModel
 @{
     ViewBag.Title = "Anasayfa";
     AboutManager aboutManager = new AboutManager();
@@ -233,35 +235,34 @@
             }
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="/Home/MessageSend/" method="post" role="form" class="php-email-form">
                     <div class="form-row">
+                        @if (ViewBag.Info != null)
+                        {
+                        <strong class="alert alert-success"><i class="fa fa-check-circle"></i> @ViewBag.Info</strong>
+                        }
                         <div class="form-group col-md-6">
                             <label for="name">Adı Soyadı</label>
-                            <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Lütfen en az 4 karakter giriniz." />
                             <div class="validate"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="name">Email Adresi</label>
-                            <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email" />
+                            <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Lütfen geçerli bir email adresi giriniz" />
                             <div class="validate"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="name">Konu</label>
-                        <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                        <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Lütfen en az 8 karakterlik bir konu giriniz" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
                         <label for="name">Mesaj</label>
-                        <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                        <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Lütfen birşeyler yaz"></textarea>
                         <div class="validate"></div>
                     </div>
-                    <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Mesajını başarıyla gönderildi. Teşekkürler!</div>
-                    </div>
-                    <div class="text-center"><button type="submit">Mesaj Gönder</button></div>
+                    <div class="text-center"><button type="submit" class="btn btn-success"><i class="fa fa-send"></i> Mesaj Gönder</button></div>
                 </form>
             </div>
 
